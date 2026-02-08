@@ -1,5 +1,5 @@
 import Link from "next/link"
-import GetTools from "@/components/tools/index" // Ensure this path matches where you put the file
+import GetTools from "@/components/Tools/index" // Ensure this path matches where you put the file
 import { createClient } from '@/utils/supabase/server'
 
 export default async function ToolsPage() {
