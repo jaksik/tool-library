@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="Default tool icon">
+  <rect width="128" height="128" rx="20" fill="#F3F4F6" />
+  <g transform="translate(16 16)" fill="none" stroke="#6B7280" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- simple wrench icon -->
+    <path d="M78.5 9.5c-9.9-9.9-26-9.9-35.9 0l-6.5 6.5 21 21 6.5-6.5c3.3-3.3 8.7-3.3 12 0 3.3 3.3 3.3 8.7 0 12L43 86l-8-8L75 40.5c3.3-3.3 3.3-8.7 0-12-3.3-3.3-8.7-3.3-12 0l-6.5 6.5-21-21L78.5 9.5z" />
+    <circle cx="22" cy="86" r="6" fill="#9CA3AF" stroke="none" />
+  </g>
+  <title>Default tool icon</title>
+</svg>
