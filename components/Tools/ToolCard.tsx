@@ -26,7 +26,7 @@ const destination = tool.affiliate_link || tool.url || "";
                 <div className="w-10 h-10 bg-white flex-shrink-0 flex items-center justify-center rounded-lg m-2 mt-1 ms-3 
                     ring-1 ring-gray-200 dark:ring-gray-800 group-hover:ring-gray-300 dark:group-hover:ring-gray-700 
                     transition-all duration-200">
-                    <img
+                         <img
                         src={tool.logo_url || ""} // Updated from logoUrl
                         alt={`${tool.name} logo`}
                         className="object-contain rounded-md"
