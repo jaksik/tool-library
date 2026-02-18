@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      articles: {
+        Row: {
+          id: number
+          title: string | null
+          url: string | null
+          publisher: string | null
+          category: string | null
+          published_at: string | null
+          created_at: string
+        }
+        Insert: {
+          id?: never
+          title?: string | null
+          url?: string | null
+          publisher?: string | null
+          category?: string | null
+          published_at?: string | null
+          created_at?: string
+        }
+        Update: {
+          id?: never
+          title?: string | null
+          url?: string | null
+          publisher?: string | null
+          category?: string | null
+          published_at?: string | null
+          created_at?: string
+        }
+        Relationships: []
+      }
       tools: {
         Row: {
           affiliate_link: string | null

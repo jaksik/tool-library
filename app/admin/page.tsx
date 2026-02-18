@@ -11,7 +11,7 @@ export default async function AdminPage() {
         <h2 className="text-2xl font-bold">Your Tools</h2>
         <Link 
             href="/admin/new" 
-            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800 transition-colors"
+            className="bg-black text-white px-4 py-2 rounded hover:bg-gray-800"
         >
             + Add New Tool
         </Link>

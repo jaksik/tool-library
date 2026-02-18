@@ -56,7 +56,7 @@ export const BeehiivForm: React.FC<BeehiivFormProps> = ({
                 </p>
                 <button
                     onClick={() => resetSuccess()}
-                    className="mt-4 px-4 py-2 bg-(--color-accent-primary) text-white hover:bg-(--color-accent-hover) rounded-md font-semibold transition-colors font-inter"
+                    className="mt-4 px-4 py-2 bg-(--color-accent-primary) text-white hover:bg-(--color-accent-hover) rounded-md font-semibold font-inter"
                 >
                     Subscribe another email
                 </button>
@@ -97,7 +97,7 @@ export const BeehiivForm: React.FC<BeehiivFormProps> = ({
                                 <button
                                     type="submit"
                                     disabled={isLoading}
-                                    className="cursor-pointer px-5 py-3 font-semibold w-full sm:w-auto text-lg focus:text-lg active:text-lg sm:text-lg rounded-md bg-(--color-accent-primary) text-white hover:bg-(--color-accent-hover) disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-inter"
+                                    className="cursor-pointer px-5 py-3 font-semibold w-full sm:w-auto text-lg focus:text-lg active:text-lg sm:text-lg rounded-md bg-(--color-accent-primary) text-white hover:bg-(--color-accent-hover) disabled:opacity-50 disabled:cursor-not-allowed font-inter"
                                 >
                                     {isLoading ? (
                                         <div className="flex items-center justify-center">

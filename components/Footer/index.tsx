@@ -11,8 +11,8 @@ export default function Footer() {
                     © {new Date().getFullYear()} Sharp Startup LLC | Austin, TX 🇺🇸
                 </p>
                 <div className="flex gap-4 text-md text-(--color-text-secondary)">
-                    <Link href="/privacy-policy" className="hover:text-accent-primary transition-colors">Privacy Policy</Link>
-                    <Link href="/affiliate-disclosure" className="hover:text-accent-primary transition-colors">Affiliate Disclosure</Link>
+                    <Link href="/privacy-policy" className="hover:text-accent-primary">Privacy Policy</Link>
+                    <Link href="/affiliate-disclosure" className="hover:text-accent-primary">Affiliate Disclosure</Link>
                 </div>
             </div>
         </footer>

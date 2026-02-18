@@ -46,10 +46,10 @@ export default function Tools({ tools }: ToolsProps) {
 
     return (
         <div className="space-y-4 bg-(--color-bg-primary)">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-[900px] mx-auto">
 
                 {/* Mobile Dropdown */}
-                <div className="lg:hidden relative w-full mb-6">
+                <div className="md:hidden relative w-full mb-6">
                     <p className="font-light text-sm mb-2 text-(--color-text-secondary)">
                         Categories:
                     </p>
@@ -83,7 +83,7 @@ export default function Tools({ tools }: ToolsProps) {
                                         setSelectedCategory(category);
                                         setIsOpen(false);
                                     }}
-                                    className={`w-full text-left px-4 py-3 transition-colors 
+                                    className={`w-full text-left px-4 py-3 
                   ${selectedCategory === category ? "bg-accent-light text-accent-primary" : "hover:bg-(--color-bg-secondary) text-(--color-text-primary)"}`}
                                 >
                                     <span className="font-semibold text-md font-inter">
@@ -96,7 +96,7 @@ export default function Tools({ tools }: ToolsProps) {
                 </div>
 
                 {/* Desktop Sidebar - Hidden on Mobile */}
-                <div className="hidden lg:block lg:col-span-4">
+                <div className="hidden md:block md:col-span-3">
                     <div className="space-y-1 pr-4 sticky top-20 max-h-[calc(100vh-10rem)] overflow-y-auto">
                         <p className="font-light text-sm mb-2 text-(--color-text-secondary)">
                             Categories:
@@ -120,7 +120,7 @@ export default function Tools({ tools }: ToolsProps) {
                 </div>
 
                 {/* Main Content */}
-                <div className="lg:col-span-8">
+                <div className="md:col-span-9">
                     <div className="grid grid-cols-1 gap-5">
                         {Object.entries(filteredTools).map(([category, categoryTools]) => (
                             <React.Fragment key={category}>
