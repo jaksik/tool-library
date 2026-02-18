@@ -55,8 +55,17 @@
   --color-input-border: #404040;
 }
 
+
+
 body {
   background-color: var(--color-bg-primary);
   color: var(--color-text-primary);
-  transition: background-color 0.2s, color 0.2s;
+}
+
+.container {
+  max-width: 1200px;
+}
+
+.page-container {
+  max-width: 900px;
 }
