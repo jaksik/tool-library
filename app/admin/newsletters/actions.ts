@@ -54,14 +54,9 @@ export async function updateNewsletterDetails(formData: FormData) {
 
   const title = typeof titleInput === 'string' ? titleInput.trim() : ''
   const intro = typeof subtitleInput === 'string' ? subtitleInput.trim() : ''
-  const status = typeof statusInput === 'string' ? statusInput.trim() : ''
 
   if (!title) {
     throw new Error('Newsletter title is required')
-  }
-
-  if (!status) {
-    throw new Error('Newsletter status is required')
   }
 
   const { error } = await db
@@ -69,7 +64,6 @@ export async function updateNewsletterDetails(formData: FormData) {
     .update({
       title,
       intro: intro || null,
-      status,
     })
     .eq('id', newsletterId)
 

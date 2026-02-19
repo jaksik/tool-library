@@ -183,35 +183,38 @@ export default async function NewslettersPage({ searchParams }: PageProps) {
 
   return (
     <section className="min-h-[calc(100vh-8rem)] w-full bg-(--color-bg-primary)">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="type-title text-(--color-text-primary)">Newsletter Design</h2>
+        <div className="flex justify-start lg:justify-end">
+          <NewsletterSelector newsletters={newsletters || []} activeNewsletterId={safeActiveId} />
+          <button
+            type="button"
+            className="inline-flex items-center justify-center rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-6 py-3 type-body font-semibold text-emerald-600 ring-1 ring-emerald-500/20 transition hover:bg-emerald-500/20 dark:text-emerald-300"
+          >
+            Get Money $
+          </button>
+        </div>
+
+      </div>
       <div className="w-full pb-8">
         <div className="rounded-xl border border-(--color-card-border) bg-(--color-card-bg)">
           <div className="border-b border-(--color-card-border) bg-(--color-bg-secondary) p-4 md:p-5">
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:items-start">
-              <div className="space-y-3">
-                <NewsletterSelector newsletters={newsletters || []} activeNewsletterId={safeActiveId} />
-                <h2 className="type-title text-(--color-text-primary)">
-                  {selectedNewsletter?.title || (safeActiveId ? `Newsletter #${safeActiveId}` : 'Select Newsletter to Get Started')}
-                </h2>
-              </div>
 
-              <div className="space-y-3">
-                <div className="flex justify-start lg:justify-end">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center rounded-lg border border-emerald-500/40 bg-emerald-500/10 px-6 py-3 type-body font-semibold text-emerald-600 ring-1 ring-emerald-500/20 transition hover:bg-emerald-500/20 dark:text-emerald-300"
-                  >
-                    Get Money $
-                  </button>
-                </div>
+              <div>
+                <p className="type-caption text-(--color-text-secondary)">
 
-                <div className="flex flex-wrap items-center gap-2 justify-start lg:justify-end">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-(--color-card-border) bg-(--color-card-bg) px-4 py-1.5">
-                    <span className="type-caption text-(--color-text-secondary)">Scheduled Date:</span>
-                    <span className="type-caption font-medium text-(--color-text-primary)">
-                      {selectedNewsletter?.publish_date ? formatPublishedAt(selectedNewsletter.publish_date) : 'Not set'}
-                    </span>
-                  </div>
 
+                </p>
+                <div className="flex flex-wrap items-center gap-2 justify-start">
+                  {selectedNewsletter?.title
+                    ? <div className="inline-flex items-center gap-2 rounded-full border border-(--color-card-border) bg-(--color-card-bg) px-4 py-1.5">
+                      <span className="type-caption text-(--color-text-secondary)">Scheduled Date:</span>
+                      <span className="type-caption font-medium text-(--color-text-primary)">
+                        {selectedNewsletter?.publish_date ? formatPublishedAt(selectedNewsletter.publish_date) : 'Not set'}
+                      </span>
+                    </div>
+                    : 'Select or create a newsletter to get started...'}
                   {safeActiveId ? (
                     <div className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 ${statusTone.container}`}>
                       <span className={`h-2 w-2 rounded-full ${statusTone.dot}`} aria-hidden />
@@ -220,23 +223,34 @@ export default async function NewslettersPage({ searchParams }: PageProps) {
                     </div>
                   ) : null}
                 </div>
+                <h2 className="type-subtitle text-(--color-text-primary) pt-5 pb-3 text-3xl">
+                  {selectedNewsletter?.title
+                    ? selectedNewsletter.title
+                    : ''}
+                </h2>
+                <h3 className="text-(--color-text-secondary) pb-5 text-xl">
+                  {selectedNewsletter?.intro
+                    ? selectedNewsletter?.intro
+                    : ''}
+                </h3>
 
+              </div>
+              <div className="space-y-3 lg:self-end">
                 <div className="flex flex-wrap items-center gap-2 justify-start lg:justify-end">
-                {categorySummary.map((item) => {
-                  const tone = getCategoryTone(item.key)
+                  {categorySummary.map((item) => {
+                    const tone = getCategoryTone(item.key)
 
-                  return (
-                    <span
-                      key={item.key}
-                      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 type-caption ${item.count > 0 ? tone.chip : 'border-(--color-card-border) bg-(--color-card-bg) text-(--color-text-secondary)'
-                        }`}
-                    >
-                      <span className={`h-2 w-2 rounded-full ${item.count > 0 ? tone.dot : 'bg-(--color-text-tertiary)'}`} aria-hidden />
-                      <span>{item.label}</span>
-                      <span className="font-medium">{item.count}</span>
-                    </span>
-                  )
-                })}
+                    return (
+                      <span
+                        key={item.key}
+                        className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 type-caption ${item.count > 0 ? tone.chip : 'border-(--color-card-border) bg-(--color-card-bg) text-(--color-text-secondary)'
+                          }`}
+                      >
+                        <span className='text-lg'>{item.label}: </span>
+                        <span className="text-lg">{item.count}</span>
+                      </span>
+                    )
+                  })}
                 </div>
               </div>
             </div>
@@ -249,7 +263,7 @@ export default async function NewslettersPage({ searchParams }: PageProps) {
                 >
                   <input type="hidden" name="newsletter_id" value={String(selectedNewsletter.id)} />
 
-                  <div className="md:col-span-4">
+                  <div className="md:col-span-12">
                     <label className="mb-1 block type-caption text-(--color-text-secondary)">Title</label>
                     <input
                       type="text"
@@ -260,7 +274,7 @@ export default async function NewslettersPage({ searchParams }: PageProps) {
                     />
                   </div>
 
-                  <div className="md:col-span-5">
+                  <div className="md:col-span-12">
                     <label className="mb-1 block type-caption text-(--color-text-secondary)">Sub-title</label>
                     <input
                       type="text"
@@ -271,23 +285,7 @@ export default async function NewslettersPage({ searchParams }: PageProps) {
                     />
                   </div>
 
-                  <div className="md:col-span-2">
-                    <label className="mb-1 block type-caption text-(--color-text-secondary)">Status</label>
-                    <select
-                      name="status"
-                      defaultValue={selectedNewsletter.status || 'draft'}
-                      className="w-full rounded-md border border-(--color-input-border) bg-(--color-input-bg) px-3 py-2 type-body text-(--color-text-primary) focus:outline-none"
-                    >
-                      {selectedNewsletter.status &&
-                        !['draft', 'scheduled', 'sent', 'archived'].includes(selectedNewsletter.status) ? (
-                        <option value={selectedNewsletter.status}>{selectedNewsletter.status}</option>
-                      ) : null}
-                      <option value="draft">draft</option>
-                      <option value="scheduled">scheduled</option>
-                      <option value="sent">sent</option>
-                      <option value="archived">archived</option>
-                    </select>
-                  </div>
+
 
                   <div className="md:col-span-1 md:flex md:items-end">
                     <button

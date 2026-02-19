@@ -31,12 +31,12 @@ export default function NewsletterSelector({
     <select
       value={activeNewsletterId ? String(activeNewsletterId) : ''}
       onChange={handleChange}
-      className="rounded-md border border-(--color-card-border) bg-(--color-card-bg) px-3 py-2 type-body text-(--color-text-primary)"
+      className="rounded-md border border-(--color-card-border) bg-(--color-card-bg) px-3 py-2 type-body mr-8 text-(--color-text-primary)"
     >
       <option value="">Select a newsletter...</option>
       {newsletters?.map((newsletter) => (
         <option key={newsletter.id} value={newsletter.id}>
-          {newsletter.title || `Newsletter #${newsletter.id}`}
+          {`Newsletter #${newsletter.id}`}
           {newsletter.publish_date ? ` · ${new Date(newsletter.publish_date).toLocaleDateString()}` : ''}
           {newsletter.status ? ` · ${newsletter.status}` : ''}
         </option>

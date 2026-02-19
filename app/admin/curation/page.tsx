@@ -231,7 +231,7 @@ export default async function CurationPage({ searchParams }: PageProps) {
   return (
     <section className="w-full bg-(--color-bg-primary)">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="type-title text-(--color-text-primary)">AI-News Articles</h2>
+        <h2 className="type-title text-(--color-text-primary)">Article Curration</h2>
 
         <CreateNewsletterModal />
 
